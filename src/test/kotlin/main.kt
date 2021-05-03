@@ -1,66 +1,103 @@
+import ru.netology.data.Post
+import ru.netology.service.WallService
+
+
 fun main() {
     val post1 = Post(
-        111,
-        1212,
-        1313,
-        1010,
-        "Первый пост",
-        120120,
-        121121,
+        1,
+        1,
+        1,
+        1,
+        1,
+        "First ru.netology.data.Post",
+        1,
+        1,
         true,
-        2,
-        123456,
-        12,
-        10,
-        1111,
-        "post",
-        1234321,
-        false,
-        false,
+        1,
         true,
         true,
         true,
-        false,
-        false,
+        true,
+        1,
+        "www",
+        "aaa",
+        "bbb",
+        1,
+        true,
+        true,
+        true,
+        1,
+        true,
+        1,
+        "ccc",
+        1,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        1,
+        true,
+        true,
+        "ddd",
         1
     )
     val post2 = Post(
-        112,
-        2222,
-        3333,
-        1111,
-        "Второй пост",
-        133331,
-        242424,
+        1,
+        1,
+        1,
+        1,
+        1,
+        "First ru.netology.data.Post",
+        1,
+        1,
         false,
-        15,
-        654321,
-        100,
-        50,
-        3000,
-        "post",
-        345676543,
+        1,
         true,
         true,
-        false,
-        false,
-        false,
         true,
         true,
-        2
+        1,
+        "www",
+        "aaa",
+        "bbb",
+        1,
+        true,
+        true,
+        true,
+        1,
+        true,
+        1,
+        "ccc",
+        1,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        1,
+        true,
+        true,
+        "ddd",
+        1
     )
+    val service = WallService()
+    service.add(post1)
+    service.add(post2)
 
-
-    var array = emptyArray<Post>()
-    array += post1
-    array += post2
-
-    printAllPost(array)
-
-    WallService.add(post1)
-    WallService.add(post2)
+    var allPost= emptyArray<Post>()
+    allPost += post1
+    allPost +=post2
+    printAllPost(allPost)
 
 }
+
+
+
 
 fun printAllPost(array: Array<Post>) {
     for (post in array) {
