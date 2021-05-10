@@ -2,7 +2,7 @@ package ru.netology.service
 
 import ru.netology.data.Post
 
-class WallService {
+object WallService {
     private var posts = emptyArray<Post>()
 
     fun add(post: Post): Post {
@@ -10,7 +10,7 @@ class WallService {
         return posts.last()
     }
 
-    fun update(id: Int, post: Post) {
+    fun update(id: Int) {
         for ((index, post) in posts.withIndex()) {
             if (post.id == id) {
                 posts[index] = post.copy()
@@ -31,6 +31,7 @@ class WallService {
                 }
             }
         }
-
     }
+
+
 

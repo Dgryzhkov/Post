@@ -45,7 +45,7 @@ fun main() {
         1
     )
     val post2 = Post(
-        1,
+        2,
         1,
         1,
         1,
@@ -85,18 +85,19 @@ fun main() {
         "ddd",
         1
     )
-    val service = WallService()
+    val service = WallService
     service.add(post1)
     service.add(post2)
+    service.update(3)
+    service.update(4)
 
-    var allPost= emptyArray<Post>()
-    allPost += post1
-    allPost +=post2
-    printAllPost(allPost)
+    var posts = emptyArray<Post>()
+    posts += post1
+    posts += post2
+
+    printAllPost(posts)
 
 }
-
-
 
 
 fun printAllPost(array: Array<Post>) {
