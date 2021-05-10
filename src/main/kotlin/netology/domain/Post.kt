@@ -1,74 +1,16 @@
+/*
 package netology.domain
 
 class Post (
-    val id: Int,
+    val id: Int, //идентификатор записи.
 
-    val ownerId: Int,
-    val fromId: Int,
+    val data: Int, //время публикации записи в формате unixtime.
 
-    val createdBy: Int,
+    var text: String, //текст записи.
 
-    val data: Int,
-    var text: String,
+    val friendsOnly: Boolean, // true если запись была создана с опцией «Только для друзей».
 
-    val replyOwnerId: Int,
-
-    val replyPostId: Int,
-    val friendsOnly: Boolean,
-
-    val countComment: Int,
-    val canPostComment: Boolean,
-    val groupsCanPostComment: Boolean,
-    val canCloseComment: Boolean,
-    val canOpenComment: Boolean,
-
-
-    // val copyright: Object,
-    val idCopyright: Int,
-    val linkCopyright: String,
-    val nameCopyright: String,
-    val typeCopyright: String,
-
-
-
-     countLikes: Int=0,
-    val userLikes: Boolean,
-    val canLikes: Boolean,
-    val canPublishLikes: Boolean,
-
-
-    val countReposts: Int,
-    val userRepostedReposts: Boolean,
-
-
-    val countViews: Int,
-
-
-    val postType: String,
-
-    val signerId: Int,
-
-    val canPin: Boolean,
-
-    val canDelete: Boolean,
-
-    val canEdit: Boolean,
-
-    val isPinned: Boolean,
-
-    val markedAsAds: Boolean,
-
-    val isFavorite: Boolean,
-
-
-
-    val isDonut: Boolean,
-    val paidDurationDonut: Int,
-    val placeholderDonut: Boolean,
-    val canPublishFreeCopyDonut: Boolean,
-    val editModeDonut: String,
-
-    val postponedId: Int
+    countLikes: Int =0, //число пользователей, которым понравилась запись;
 ) {
     var countLikes= countLikes
         set (value) {
@@ -77,4 +19,9 @@ class Post (
             }
             field = value
         }
+
+    override fun toString(): String {
+        return "$data  $text"
+    }
 }
+*/

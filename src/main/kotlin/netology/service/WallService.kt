@@ -14,23 +14,24 @@ class WallService {
         for ((index, post) in posts.withIndex()) {
             if (post.id == id) {
                 posts[index] = post.copy()
-
             }
         }
     }
 
+/*
         fun removeById(id: Long): Boolean {
             TODO()
         }
+*/
 
-        //доделать
+/*        //доделать
         fun likeById(id: Int) {
             for ((index, post) in posts.withIndex()) {
                 if (post.id == id) {
                     posts[index] = post.copy(countLikes = post.countLikes + 1)
                 }
             }
-        }
+        }*/
 
     }
 
