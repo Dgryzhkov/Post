@@ -1,6 +1,6 @@
-package ru.netology.service
+package netology.service
 
-import ru.netology.data.Post
+import netology.data.Post
 
 object WallService {
     private var posts = emptyArray<Post>()

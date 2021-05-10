@@ -1,4 +1,4 @@
-package ru.netology.data
+package netology.data
 
 data class Post(
     val id: Int, //идентификатор записи.
@@ -87,7 +87,7 @@ wphone.*/
     val cityGeoPlace: Int, // идентификатор города.
     val addressGeoPlace: String, // адрес места.
 
-    val copy_history: Array<Post>, /* массив, содержащий историю репостов для записи.
+    val copy_history: Array<Post>?, /* массив, содержащий историю репостов для записи.
     Возвращается только в том случае, если запись является репостом.
     Каждый из объектов массива, в свою очередь, является объектом-записью стандартного формата.*/
 
