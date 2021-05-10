@@ -1,4 +1,4 @@
-package ru.netology.data
+package netology.data
 
 data class Post(
     val id: Int, //идентификатор записи.

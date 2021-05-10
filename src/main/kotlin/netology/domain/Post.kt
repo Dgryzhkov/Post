@@ -1,4 +1,4 @@
-package ru.netology.domain
+package netology.domain
 
 class Post (
     val id: Int,

@@ -1,5 +1,5 @@
-import ru.netology.data.Post
-import ru.netology.service.WallService
+import netology.data.Post
+import netology.service.WallService
 
 
 fun main() {

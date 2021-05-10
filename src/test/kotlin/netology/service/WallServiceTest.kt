@@ -9,4 +9,11 @@ class WallServiceTest {
     @Test
     fun add() {
     }
+
+    @Test
+    fun update(){
+    }
+
+
 }
+
