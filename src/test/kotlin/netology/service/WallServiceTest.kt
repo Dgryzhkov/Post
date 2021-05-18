@@ -24,6 +24,9 @@ class WallServiceTest {
     fun updateTrue(){
         // создае целевой сервис
         val service=WallService()
+        service.add(Post(1, 1012012, "Пост номер 1", true, 1, null))
+        service.add(Post(2, 2012012, "Пост номер 2", false, 2, null))
+        service.add(Post(3, 3012012, "Пост номер 3", true, 3, null))
         val result=service.update(Post(1, 232012, "Post number 5", true,
             1, null))
         assertTrue(true)
@@ -33,6 +36,9 @@ class WallServiceTest {
     fun updateFalse(){
         // создае целевой сервис
         val service=WallService()
+        service.add(Post(1, 1012012, "Пост номер 1", true, 1, null))
+        service.add(Post(2, 2012012, "Пост номер 2", false, 2, null))
+        service.add(Post(3, 3012012, "Пост номер 3", true, 3, null))
         val result=service.update(Post(4, 232012, "Post number 5", true,
             1, null))
        assertFalse(false)
