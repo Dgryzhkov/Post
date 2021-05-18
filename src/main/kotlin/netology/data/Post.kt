@@ -9,10 +9,14 @@ data class Post(
 
     val friendsOnly: Boolean, // true если запись была создана с опцией «Только для друзей».
 
-    val countLikes: Int=0, //число пользователей, которым понравилась запись;
+    val countLikes: Int = 0, //число пользователей, которым понравилась запись;
+
+    val original: Post?
 
 ) {
     override fun toString(): String {
         return "$data  $text"
     }
+
+
 }

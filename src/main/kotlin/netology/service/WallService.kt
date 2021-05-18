@@ -5,33 +5,18 @@ import netology.data.Post
 class WallService {
     private var posts = emptyArray<Post>()
 
-    fun add(post: Post): Post {
-        posts += post
+
+    fun add(post: Post): Post {//подсказал преподаватель
+        posts += post.copy(id = if (posts.isEmpty()) 0 else posts.last().id + 1)
         return posts.last()
     }
 
-    fun update(id: Int, post: Post) {
-        for ((index, post) in posts.withIndex()) {
-            if (post.id == id) {
-                posts[index] = post.copy()
-            }
+    fun update(post: Post): Boolean { // подсказал преподаватель
+        val index = posts.indexOfFirst { it.id == post.id }
+        return if (index < 0||index>posts.size) false else {
+            posts[index] = post.copy(id=posts[index].id, data=posts[index].data, text = post.text,
+            friendsOnly = post.friendsOnly,countLikes = post.countLikes,original = post.original)
+            true
         }
     }
-
-/*
-        fun removeById(id: Long): Boolean {
-            TODO()
-        }
-*/
-
-/*        //доделать
-        fun likeById(id: Int) {
-            for ((index, post) in posts.withIndex()) {
-                if (post.id == id) {
-                    posts[index] = post.copy(countLikes = post.countLikes + 1)
-                }
-            }
-        }*/
-
-    }
-
+}
