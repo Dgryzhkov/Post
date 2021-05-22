@@ -1,13 +1,5 @@
 package netology.service
-
-import Audio
-import AudioAttachment
-import DocumentsAttachment
-import FotosAttachment
-import LinksAttachment
-import Video
-import VideosAttachment
-import netology.attachment.Attachment
+import netology.attachment.*
 import netology.data.Post
 import org.junit.Test
 
@@ -21,7 +13,7 @@ class WallServiceTest {
         val service = WallService()
         var attachments = emptyArray<Attachment>()
         attachments += AudioAttachment()
-        attachments += VideosAttachment()
+        attachments += VideoAttachment()
         attachments += FotosAttachment()
         attachments += DocumentsAttachment()
         attachments += LinksAttachment()
@@ -44,7 +36,7 @@ class WallServiceTest {
         val service=WallService()
         var attachments = emptyArray<Attachment>()
         attachments += AudioAttachment()
-        attachments += VideosAttachment()
+        attachments += VideoAttachment()
         attachments += FotosAttachment()
         attachments += DocumentsAttachment()
         attachments += LinksAttachment()
@@ -66,7 +58,7 @@ class WallServiceTest {
         val service=WallService()
         var attachments = emptyArray<Attachment>()
         attachments += AudioAttachment()
-        attachments += VideosAttachment()
+        attachments += VideoAttachment()
         attachments += FotosAttachment()
         attachments += DocumentsAttachment()
         attachments += LinksAttachment()

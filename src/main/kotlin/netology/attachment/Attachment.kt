@@ -32,13 +32,25 @@ data class AudioAttachment(
 data class DocumentsAttachment(
     override val type: String = "document",
     private val document: Document = Document(0, " ", "pfd")
-) : Attachment()
+) : Attachment(){
+    override fun toString(): String {
+        return "вложение типа $type ${document} "
+    }
+}
 
 data class FotosAttachment(
     override val type: String = "foto",
     private val foto: Foto = Foto(0, 0, "Фотка")
-) : Attachment()
+) : Attachment(){
+    override fun toString(): String {
+        return "вложение типа $type $foto"
+    }
+}
 
 data class LinksAttachment(override val type: String="link",
                       private val link: Link= Link("mail.ru","Почта","Почтовый сервис")
-) : Attachment()
+) : Attachment(){
+    override fun toString(): String {
+        return "Вложение типа $type $link"
+    }
+}
