@@ -1,16 +1,17 @@
-import netology.attachment.Attachment
+import netology.attachment.*
 import netology.data.Post
 import netology.service.WallService
 
 
 fun main() {
+
     val service = WallService()
     var attachments = emptyArray<Attachment>()
     attachments += AudioAttachment(audio = Audio(1, "Audio", true))
-    attachments += VideosAttachment(video = Video(0, "Video", false))
+    attachments += VideoAttachment(video = Video(123, "film", true))
     attachments += FotosAttachment()
-    attachments+=DocumentsAttachment()
-    attachments+=LinksAttachment()
+    attachments += DocumentsAttachment()
+    attachments += LinksAttachment()
 
     val post1 = Post(1, 1012012, "Пост номер 1", true, 1, null, attachments)
     val post2 = Post(2, 2012012, "Пост номер 2", false, 2, post1, null)
