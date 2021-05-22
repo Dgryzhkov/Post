@@ -1,9 +1,9 @@
 import netology.attachment.Attachment
-import java.util.*
 
-class AudioAttachment(override val type: String, override val objects: Audio) : Attachment
+
+class AudioAttachment(override val type: String="audio", private val audio: Audio=Audio(0,"_",true)) : Attachment
 {
     override fun toString(): String {
-        return "вложение типа $type $objects"
+        return "Вложение типа $type $audio"
     }
 }

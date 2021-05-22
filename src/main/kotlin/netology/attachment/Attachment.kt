@@ -1,7 +1,9 @@
 package netology.attachment
 
-interface Attachment {
-    abstract val type: String
-    abstract val objects: Any
+import kotlin.coroutines.coroutineContext
 
+interface Attachment{
+    abstract val type: String
 }
+
+
