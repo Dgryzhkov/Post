@@ -21,9 +21,13 @@ data class Post(
 ) {
 
     override fun toString(): String {
-        return " Дата создания $data, текст \"$text\"" +
-                " ${attachment?.let { printAttachment(it) }} + ${comment?.let { printComments(it) }}"
-    }
+        return """
+             |Дата создания $data, текст "$text",
+             |${attachment?.joinToString(separator = "\n")?: "Вложений нет"},
+             |${comment?.joinToString(separator = "\n")?: "Комментариев нет"}
+                 """
+                     .trimMargin()
+             }
 
     private fun printComments(array: Array<Comment>) {
         for (post in array) {

@@ -9,7 +9,7 @@ class WallService {
     private var comments = emptyArray<Comment>()
 
     fun add(post: Post): Post {//подсказал преподаватель
-        posts += post.copy(id = if (posts.isEmpty()) 0 else posts.last().id + 1)
+        posts += post.copy(id = if (posts.isEmpty()) 0 else posts.last().id + 1, comment = emptyArray())
         return posts.last()
     }
 
@@ -28,7 +28,11 @@ class WallService {
         val index = posts.indexOfFirst { it.id == comment.postId }
         if (index < 0) throw PostNotFoundException("Поста с таким ID не существует") else {
             comments+=comment.copy(message = comment.message)
+            val post = posts[index]
+            posts[index]=post.copy(comment = (post.comment?: emptyArray()) + comment)
         }
     }
+    fun getPosts(): Array<Post> = posts.clone()
 
 }
+

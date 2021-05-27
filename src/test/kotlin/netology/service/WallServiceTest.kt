@@ -7,6 +7,7 @@ import netology.data.Post
 import org.junit.Test
 
 import org.junit.Assert.*
+import kotlin.math.exp
 
 class WallServiceTest {
 
@@ -121,15 +122,12 @@ class WallServiceTest {
     @Test(expected = PostNotFoundException::class)
     fun shouldThrow() {
         val service = WallService()
-        var commentsId0 = emptyArray<Comment>()
-        val comment1 = Comment(4, 1,"Комментарий 1")
-        var allPost = emptyArray<Post>()
-        val post1 = Post(1, 1012012, "Пост номер 1", true, 1,
-            null, null, commentsId0)
+        val post1 = Post(
+            1, 1012012, "Пост номер 1", true,
+            1, null, null, null
+        )
         service.add(post1)
-        val result = service.createComment(comment1)
-        assertTrue(allPost.equals(result))
-        // здесь код с вызовом функции, которая должна выкинуть PostNotFoundException
+        service.createComment(Comment(4, 2, "Комментарий 1"))
     }
 
 }
