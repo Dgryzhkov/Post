@@ -130,6 +130,34 @@ class WallServiceTest {
         service.createComment(Comment(4, 2, "Комментарий 1"))
     }
 
+    @Test
+    fun shouldThrowComment() {
+        val service = WallService()
+        val post1 = Post(
+            1, 1012012, "Пост номер 1", true,
+            1, null, null, null
+        )
+        val post2 = Post(
+            2, 1012012, "Пост номер 2", true,
+            1, null, null, null
+        )
+        service.add(post1)
+        service.add(post2)
+        service.createComment(Comment(4, 0, "Комментарий 1"))
+        service.createComment(Comment(4, 1, "Комментарий 2"))
+    }
+    
+
+    @Test
+    fun getComment() {
+        val service = WallService()
+        val post1 = Post(
+            1, 1012012, "Пост номер 1", true,
+            1, null, null, null
+        )
+        service.add(post1)
+        service.getPosts()
+    }
 }
 
 
