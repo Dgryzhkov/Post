@@ -1,5 +1,6 @@
 package netology.data
 
+import Comment
 import netology.attachment.Attachment
 
 data class Post(
@@ -14,12 +15,20 @@ data class Post(
     val countLikes: Int = 0, //число пользователей, которым понравилась запись;
 
     val original: Post?,
-    val attachment: Array<Attachment>?
+    val attachment: Array<Attachment>?,
+    val comment: Array<Comment>?
 
 ) {
 
     override fun toString(): String {
-        return " Дата создания $data, текст \"$text\" ${attachment?.let { printAttachment(it) } }"
+        return " Дата создания $data, текст \"$text\"" +
+                " ${attachment?.let { printAttachment(it) }} + ${comment?.let { printComments(it) }}"
+    }
+
+    private fun printComments(array: Array<Comment>) {
+        for (post in array) {
+            println(post)
+        }
     }
 
     private fun printAttachment(array: Array<Attachment>) {
@@ -28,4 +37,4 @@ data class Post(
         }
     }
 
-    }
+}

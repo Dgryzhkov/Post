@@ -1,10 +1,12 @@
 package netology.service
 
+import Comment
+import PostNotFoundException
 import netology.data.Post
 
 class WallService {
     private var posts = emptyArray<Post>()
-
+    private var comments = emptyArray<Comment>()
 
     fun add(post: Post): Post {//подсказал преподаватель
         posts += post.copy(id = if (posts.isEmpty()) 0 else posts.last().id + 1)
@@ -21,4 +23,12 @@ class WallService {
             true
         }
     }
+
+    fun createComment(comment: Comment) {
+        val index = posts.indexOfFirst { it.id == comment.postId }
+        if (index < 0) throw PostNotFoundException("Поста с таким ID не существует") else {
+            comments+=comment.copy(message = comment.message)
+        }
+    }
+
 }
