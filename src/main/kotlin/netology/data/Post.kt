@@ -16,7 +16,7 @@ data class Post(
 
     val original: Post?,
     val attachment: Array<Attachment>?,
-    val comment: Array<Comment>?
+    val comment: Array<Comment> = emptyArray()
 
 ) {
 

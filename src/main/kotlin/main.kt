@@ -29,10 +29,10 @@ fun main() {
     attachments += LinksAttachment()
 
     var allPost = emptyArray<Post>()
-    val post1 = Post(1, 1012012, "Пост номер 1", true, 1, null, null, null)
-    val post2 = Post(2, 2012012, "Пост номер 2", false, 2, null, null, null)
-    val post3 = Post(3, 3012012, "Пост номер 3", true, 1, null, null, null)
-    val post4 = Post(2, 2302012, "Post number 5", true, 1, null, null, null)
+    val post1 = Post(1, 1012012, "Пост номер 1", true, 1, null, null)
+    val post2 = Post(2, 2012012, "Пост номер 2", false, 2, null, null)
+    val post3 = Post(3, 3012012, "Пост номер 3", true, 1, null, null)
+    val post4 = Post(2, 2302012, "Post number 5", true, 1, null, null)
 
     allPost += post1
     allPost += post2

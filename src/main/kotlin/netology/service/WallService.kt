@@ -8,6 +8,16 @@ import netology.data.Post
 import java.util.*
 
 class WallService {
+    private val reasons = arrayOf(
+        ReasonsReport("спам"),
+        ReasonsReport("детская порнография"),
+        ReasonsReport("экстремизм"),
+        ReasonsReport("насилие"),
+        ReasonsReport("пропаганда наркотиков"),
+        ReasonsReport("материал для взрослых"),
+        ReasonsReport("оскорбление"),
+        ReasonsReport("призывы к суициду"),
+    )
     private var posts = emptyArray<Post>()
     private var comments = emptyArray<Comment>()
     private var reports = emptyArray<WallReportComment>()
@@ -33,35 +43,20 @@ class WallService {
         if (index < 0) throw PostNotFoundException("Поста с таким ID не существует") else {
             comments += comment.copy(message = comment.message)
             val post = posts[index]
-            posts[index] = post.copy(comment = (post.comment ?: emptyArray()) + comment)
+            posts[index] = post.copy(comment = post.comment + comment)
         }
     }
+
 
     fun getPosts(): Array<Post> = posts.clone()
 
     fun createReport(wallReportComment: WallReportComment) {
-        var reasons = emptyArray<ReasonsReport>()
-        reasons += ReasonsReport("спам")
-        reasons += ReasonsReport("детская порнография")
-        reasons += ReasonsReport("экстремизм")
-        reasons += ReasonsReport("насилие")
-        reasons += ReasonsReport("пропаганда наркотиков")
-        reasons += ReasonsReport("материал для взрослых")
-        reasons += ReasonsReport("оскорбление")
-        reasons += ReasonsReport("призывы к суициду")
-
         val index = posts.indexOfFirst { it.id == wallReportComment.commentId }
-
         if (index < 0) throw PostNotFoundException("Поста с таким ID не существует") else {
-
-            val findReason = reasons?.find {
+            reasons.find {
                 it.reasons == wallReportComment.reason
-            }
-            if (findReason != null)
-            else {
-                throw PostNotFoundException("Причина жалобы не корректна")
-            }
+            } ?: throw PostNotFoundException("Причина жалобы не корректна")
         }
-
     }
+
 }
