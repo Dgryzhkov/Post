@@ -2,6 +2,8 @@ package netology.service
 
 import Comment
 import PostNotFoundException
+import ReasonsReport
+import WallReportComment
 import netology.attachment.*
 import netology.data.Post
 import org.junit.Test
@@ -126,8 +128,15 @@ class WallServiceTest {
             1, 1012012, "Пост номер 1", true,
             1, null, null, null
         )
+        val post2 = Post(
+            2, 1012012, "Пост номер 2", true,
+            1, null, null,
+            comment = arrayOf(Comment(4, 2, "Комментарий 3"))
+        )
         service.add(post1)
+        service.add(post2)
         service.createComment(Comment(4, 2, "Комментарий 1"))
+        service.createComment(Comment(4, 3, "Комментарий 21"))
     }
 
     @Test
@@ -139,26 +148,104 @@ class WallServiceTest {
         )
         val post2 = Post(
             2, 1012012, "Пост номер 2", true,
-            1, null, null, null
+            1, null, null,
+            comment = arrayOf(Comment(4, 2, "Комментарий 3"),
+                Comment(4, 2, "Комментарий 5"))
         )
-        service.add(post1)
         service.add(post2)
+        service.add(post1)
         service.createComment(Comment(4, 0, "Комментарий 1"))
-        service.createComment(Comment(4, 1, "Комментарий 2"))
+        service.createComment(Comment(4, 1, "Комментарий 5"))
     }
-    
+
 
     @Test
-    fun getComment() {
+    fun getPost() {
         val service = WallService()
         val post1 = Post(
             1, 1012012, "Пост номер 1", true,
             1, null, null, null
         )
+        val post2 = Post(
+            2, 1012012, "Пост номер 2", true,
+            1, null, null,
+            comment = arrayOf(Comment(4, 2, "Комментарий 3"))
+        )
         service.add(post1)
+        service.add(post2)
         service.getPosts()
+
+    }
+
+
+    @Test
+    fun createComment() {
+        val service = WallService()
+        val post1 = Post(
+            1, 1012012, "Пост номер 1", true,
+            1, null, null, null
+        )
+        val post2 = Post(
+            2, 1012012, "Пост номер 2", true,
+            1, null, null,
+            comment = arrayOf(Comment(4, 2, "Комментарий 3"))
+        )
+        service.add(post1)
+        service.add(post2)
+         service.getPosts()
+        val report1 = WallReportComment(
+            5,
+            1,
+            "насилие"
+        )
+        service.createReport(report1)
+
+    }
+
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrowReportID() {
+        val service = WallService()
+        val post1 = Post(
+            1, 1012012, "Пост номер 1", true,
+            1, null, null, null
+        )
+        val post2 = Post(
+            2, 1012012, "Пост номер 2", true,
+            1, null, null,
+            comment = arrayOf(Comment(4, 2, "Комментарий 3"))
+        )
+        service.add(post1)
+        service.add(post2)
+        val report1 = WallReportComment(
+            5,
+            1,
+            "куку"
+        )
+        service.createReport(report1)
+    }
+    @Test(expected = PostNotFoundException::class)
+    fun shouldThrowReportComment() {
+        val service = WallService()
+        val post1 = Post(
+            1, 1012012, "Пост номер 1", true,
+            1, null, null, null
+        )
+        val post2 = Post(
+            2, 1012012, "Пост номер 2", true,
+            1, null, null,
+            comment = arrayOf(Comment(4, 2, "Комментарий 3"))
+        )
+        service.add(post1)
+        service.add(post2)
+        val report1 = WallReportComment(
+            5,
+            5,
+            "спам"
+        )
+        service.createReport(report1)
     }
 }
+
 
 
 
